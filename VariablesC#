@@ -1,0 +1,52 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int queTriar;
+
+        // Demanar opció a l'usuari
+        Console.WriteLine("Exercici a provar (1-6): ");
+        queTriar = Convert.ToInt32(Console.ReadLine());
+
+        // Switch per seleccionar exercici
+        switch (queTriar)
+        {
+            case 1:
+                Console.WriteLine("Has escollit l'exercici 1");
+                // codi exercici 1
+                break;
+
+            case 2:
+                Console.WriteLine("Has escollit l'exercici 2");
+                // codi exercici 2
+                break;
+
+            case 3:
+                Console.WriteLine("Has escollit l'exercici 3");
+                // codi exercici 3
+                break;
+
+            case 4:
+                Console.WriteLine("Has escollit l'exercici 4");
+                // codi exercici 4
+                break;
+
+            case 5:
+                Console.WriteLine("Has escollit l'exercici 5");
+                // codi exercici 5
+                break;
+
+            case 6:
+                Console.WriteLine("Has escollit l'exercici 6");
+                // codi exercici 6
+                break;
+
+            default:
+                // IMPORTANT: si no és 1-6, sortim o avisem
+                Console.WriteLine("Opció no vàlida. El programa es tanca.");
+                break;
+        }
+    }
+}
