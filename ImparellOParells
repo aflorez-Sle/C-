@@ -1,0 +1,53 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Sol·licitem el número a l'usuari
+        Console.Write("Introdueix un número sencer: ");
+        if (int.TryParse(Console.ReadLine(), out int llindar))
+        {
+            int comptadorParells = 0;    // Multiples de 3
+            int comptadorImparells = 0;  // Multiples de 4
+            int sumaParells = 0;
+            int sumaImparells = 0;
+            int multiplesDe13 = 0;
+
+            for (int i = 1; i <= llindar; i++)
+            {
+                // Lògica "Parell" (Múltiple de 3)
+                if (i % 3 == 0)
+                {
+                    comptadorParells++;
+                    sumaParells += i;
+                }
+
+                // Lògica "Imparell" (Múltiple de 4)
+                if (i % 4 == 0)
+                {
+                    comptadorImparells++;
+                    sumaImparells += i;
+                }
+
+                // Múltiples de 13
+                if (i % 13 == 0)
+                {
+                    multiplesDe13++;
+                }
+            }
+
+            // Mostrem els resultats
+            Console.WriteLine("\n--- Resultats (segons interpretació especial) ---");
+            Console.WriteLine($"Quantitat de números 'parells' (múltiples de 3): {comptadorParells}");
+            Console.WriteLine($"Quantitat de números 'imparells' (múltiples de 4): {comptadorImparells}");
+            Console.WriteLine($"Suma total de valors 'parells': {sumaParells}");
+            Console.WriteLine($"Suma total de valors 'imparells': {sumaImparells}");
+            Console.WriteLine($"Quantitat de múltiples de 13: {multiplesDe13}");
+        }
+        else
+        {
+            Console.WriteLine("Si us plau, introdueix un número vàlid.");
+        }
+    }
+}
