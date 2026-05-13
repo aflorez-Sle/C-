@@ -1,0 +1,70 @@
+using System;
+
+class PedraPaperTisora
+{
+    static void Main()
+    {
+        Random atzar = new Random();
+
+        // Generem les jugades (0: Pedra, 1: Paper, 2: Tisora)
+        int jugada1 = atzar.Next(0, 3);
+        int jugada2 = atzar.Next(0, 3);
+
+        // Traduïm els números a noms
+        string nomJugada1 = TraduirJugada(jugada1);
+        string nomJugada2 = TraduirJugada(jugada2);
+
+        Console.WriteLine($"Jugador 1 ha tret: {nomJugada1}");
+        Console.WriteLine($"Jugador 2 ha tret: {nomJugada2}");
+
+        // Determinació del guanyador amb la "regla especial"
+        DeterminarGuanyador(jugada1, jugada2);
+    }
+
+    static string TraduirJugada(int valor)
+    {
+        return valor switch
+        {
+            0 => "Pedra",
+            1 => "Paper",
+            2 => "Tisora",
+            _ => "Desconegut"
+        };
+    }
+
+    static void DeterminarGuanyador(int j1, int j2)
+    {
+        // REGLA ESPECIAL: El Paper (1) guanya sempre
+        if (j1 == 1 && j2 != 1)
+        {
+            Console.WriteLine("Guanyador: Jugador 1 (El Paper sempre guanya!)");
+        }
+        else if (j2 == 1 && j1 != 1)
+        {
+            Console.WriteLine("Guanyador: Jugador 2 (El Paper sempre guanya!)");
+        }
+        // Cas d'empat (inclou si tots dos treuen Paper)
+        else if (j1 == j2)
+        {
+            Console.WriteLine("Empat!");
+        }
+        // Lògica normal per a la resta de casos (Pedra vs Tisora)
+        else
+        {
+            if ((j1 == 0 && j2 == 2)) 
+            {
+                Console.WriteLine("Guanyador: Jugador 1");
+            }
+            else if ((j2 == 0 && j1 == 2))
+            {
+                Console.WriteLine("Guanyador: Jugador 2");
+            }
+            else
+            {
+                // Aquesta part en teoria no s'executaria per la regla del paper, 
+                // però tanca la lògica per si s'eliminessin les excepcions.
+                Console.WriteLine("Resultat no definit.");
+            }
+        }
+    }
+}
